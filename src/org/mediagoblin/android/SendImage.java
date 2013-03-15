@@ -127,7 +127,7 @@ public class SendImage extends Activity {
                     if (extras.containsKey(Intent.EXTRA_STREAM)) {
                         Uri uri = (Uri) extras.getParcelable(Intent.EXTRA_STREAM);
                         String scheme = uri.getScheme();
-                        if (scheme.equals("content")) {
+                        if ("content".equals(scheme)) {
                             ContentResolver contentResolver = getContentResolver();
                             Cursor cursor = contentResolver.query(uri, null, null,
                                     null, null);

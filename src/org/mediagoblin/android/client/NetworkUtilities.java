@@ -168,10 +168,8 @@ final public class NetworkUtilities {
                 if (res == -1) {
                     break;
                 }
-                if (res > 0) {
-                    if (out != null) {
-                        out.write(pBuffer, 0, res);
-                    }
+                if (res > 0 && out != null) {
+                    out.write(pBuffer, 0, res);
                 }
             }
             out.close();

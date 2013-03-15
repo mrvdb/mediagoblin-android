@@ -149,14 +149,14 @@ public class LoginActivity extends AccountAuthenticatorActivity {
     }
 
     private String mReturnAuthorizationRequestUri() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(mServer);
-        sb.append(NetworkUtilities.PATH_OAUTH_AUTHORIZE);
-        sb.append("?response_type=token");
-        sb.append("&client_id="+NetworkUtilities.CLIENT_ID);
-        sb.append("&redirect_uri="+NetworkUtilities.REDIRECT_URI);
-        Log.d(TAG, sb.toString());
-        return sb.toString();
+        String uri = Uri.parse(mServer).buildUpon()
+            .appendPath(NetworkUtilities.PATH_OAUTH_AUTHORIZE)
+            .appendQueryParameter("response_type", "token")
+            .appendQueryParameter("client_id", NetworkUtilities.CLIENT_ID)
+            .appendQueryParameter("redirect_uri", NetworkUtilities.REDIRECT_URI)
+            .build().toString();
+        Log.d(TAG, uri);
+        return uri;
     }
 
     private String extractAccessCode(String url) {

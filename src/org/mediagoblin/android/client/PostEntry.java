@@ -185,8 +185,6 @@ public class PostEntry extends AsyncTask<Bundle, Void, JSONObject> {
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } finally {
-            // if (writer != null) writer.close();
         }
 
         return null;

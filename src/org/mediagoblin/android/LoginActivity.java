@@ -150,7 +150,7 @@ public class LoginActivity extends AccountAuthenticatorActivity {
 
     private String mReturnAuthorizationRequestUri() {
         String uri = Uri.parse(mServer).buildUpon()
-            .appendPath(NetworkUtilities.PATH_OAUTH_AUTHORIZE)
+            .encodedPath(NetworkUtilities.PATH_OAUTH_AUTHORIZE)
             .appendQueryParameter("response_type", "token")
             .appendQueryParameter("client_id", NetworkUtilities.CLIENT_ID)
             .appendQueryParameter("redirect_uri", NetworkUtilities.REDIRECT_URI)

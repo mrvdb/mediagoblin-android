@@ -57,8 +57,8 @@ final public class NetworkUtilities {
     public static final String PARAM_CLIENT_ID = "client_id";
 
     public static final String REDIRECT_URI    = "https://localhost-mediagoblin-app";
-    public static final String CLIENT_ID = "88740bec-69a2-4d60-8a36-90c4f11ae51b";
-    public static final String CLIENT_SECRET = "$2a$12$ovKzql0Wd4.axAVUglLXA./2dVAN9ZiB3lKNMI07WYvkKEsH5QUxy";
+    public static final String CLIENT_ID = "8501858b-1c6b-469f-b3d5-51596f2490d6";
+    public static final String CLIENT_SECRET = "$2a$12$YKXxorpwjbAPR2U5M8mSLOLpehpjnOiBVxrDNQCstdLl6etAENnXW";
 
     /** Timeout (in ms) we specify for each http request */
     public static final int HTTP_REQUEST_TIMEOUT_MS = 30 * 1000;

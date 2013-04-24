@@ -37,6 +37,7 @@ public class AuthenticationService extends Service {
 
     @Override
     public void onCreate() {
+        super.onCreate();
         if (Log.isLoggable(TAG, Log.VERBOSE)) {
             Log.v(TAG, "MediaGoblin Authentication Service started.");
         }
@@ -48,6 +49,7 @@ public class AuthenticationService extends Service {
         if (Log.isLoggable(TAG, Log.VERBOSE)) {
             Log.v(TAG, "MediaGoblin Authentication Service stopped.");
         }
+        super.onDestroy();
     }
 
     @Override

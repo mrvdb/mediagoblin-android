@@ -86,7 +86,7 @@ public class SendImage extends Activity {
                 new OnTokenAcquired(), new Handler(new OnError()));
     }
 
-    private void uploadComplete(JSONObject result) {
+    private void uploadComplete() {
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_LONG;
 
@@ -127,7 +127,7 @@ public class SendImage extends Activity {
                     if (extras.containsKey(Intent.EXTRA_STREAM)) {
                         Uri uri = (Uri) extras.getParcelable(Intent.EXTRA_STREAM);
                         String scheme = uri.getScheme();
-                        if (scheme.equals("content")) {
+                        if ("content".equals(scheme)) {
                             ContentResolver contentResolver = getContentResolver();
                             Cursor cursor = contentResolver.query(uri, null, null,
                                     null, null);
@@ -168,7 +168,7 @@ public class SendImage extends Activity {
         protected void onPostExecute(JSONObject result) {
             super.onPostExecute(result);
 
-            uploadComplete(result);
+            uploadComplete();
         }
 
         public UploadImage(String server, String token) {

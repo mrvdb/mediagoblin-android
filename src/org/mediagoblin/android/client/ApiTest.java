@@ -82,8 +82,7 @@ public class ApiTest extends AsyncTask<Void, Void, JSONObject> {
             // parse token_response as JSON to get the token out
             String str_response = NetworkUtilities.readStreamToString(is, 500);
             Log.d("GMG", str_response);
-            JSONObject response = new JSONObject(str_response);
-            return response;
+            return new JSONObject(str_response);
         } catch (MalformedURLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

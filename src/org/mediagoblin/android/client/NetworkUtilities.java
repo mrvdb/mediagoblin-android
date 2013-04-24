@@ -28,6 +28,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -79,7 +80,7 @@ final public class NetworkUtilities {
         return httpClient;
     }
 
-    private static URL getRequestURL(String server, String uri, ArrayList<NameValuePair> params) throws MalformedURLException {
+    private static URL getRequestURL(String server, String uri, Iterable<NameValuePair> params) throws MalformedURLException {
 
         Uri server_uri = Uri.parse(server + uri);
         Uri.Builder request_builder = server_uri.buildUpon();
@@ -96,7 +97,7 @@ final public class NetworkUtilities {
 
         String token=null;
 
-        final ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+        final List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair(PARAM_CODE, code));
         params.add(new BasicNameValuePair(PARAM_CLIENT_SECRET, CLIENT_SECRET));
 
@@ -168,10 +169,8 @@ final public class NetworkUtilities {
                 if (res == -1) {
                     break;
                 }
-                if (res > 0) {
-                    if (out != null) {
-                        out.write(pBuffer, 0, res);
-                    }
+                if (res > 0 && out != null) {
+                    out.write(pBuffer, 0, res);
                 }
             }
             out.close();

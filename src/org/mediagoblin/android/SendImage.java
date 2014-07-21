@@ -142,6 +142,8 @@ public class SendImage extends Activity {
                                     ((TextView)findViewById(R.id.editTitle)).getText().toString());
                             mediaInfo.putString(PostEntry.KEY_DESCRIPTION,
                                     ((TextView)findViewById(R.id.editDescription)).getText().toString());
+			    mediaInfo.putString(PostEntry.KEY_TAGS,
+				    ((TextView)findViewById(R.id.editTags)).getText().toString());
 
                             new UploadImage(mAM.getUserData(mgAccount, Constants.KEY_SERVER), token).execute(mediaInfo);
                         }

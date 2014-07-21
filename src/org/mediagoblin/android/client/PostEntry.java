@@ -52,6 +52,7 @@ public class PostEntry extends AsyncTask<Bundle, Void, JSONObject> {
     public static final String KEY_FILE_PATH = "filepath";
     public static final String KEY_TITLE = "title";
     public static final String KEY_DESCRIPTION = "description";
+    public static final String KEY_TAGS = "tags";
 
     public static final String API_BASE = "/api";
     public static final String API_POST_ENTRY = "/submit";
@@ -126,6 +127,17 @@ public class PostEntry extends AsyncTask<Bundle, Void, JSONObject> {
                         .append(CRLF);
                 writer.append(CRLF);
                 writer.append(mediaInfo.getString(KEY_DESCRIPTION))
+                        .append(CRLF).flush();
+            }
+	    if (mediaInfo.containsKey(KEY_TAGS)) {
+                writer.append("--" + boundary).append(CRLF);
+                writer.append(
+                        "Content-Disposition: form-data; name=\"tags\"")
+                        .append(CRLF);
+                writer.append("Content-Type: text/plain; charset=" + charset)
+                        .append(CRLF);
+                writer.append(CRLF);
+                writer.append(mediaInfo.getString(KEY_TAGS))
                         .append(CRLF).flush();
             }
 

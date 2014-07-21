@@ -52,7 +52,18 @@
             android:layout_alignRight="@+id/editTitle"
             android:layout_below="@+id/editTitle"
             android:ems="10"
-            android:hint="@string/enter_description"            
+            android:hint="@string/enter_description"
+            android:inputType="textMultiLine" />
+
+	<EditText
+            android:id="@+id/editTags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/editTitle"
+            android:layout_alignRight="@+id/editTitle"
+            android:layout_below="@+id/editDescription"
+            android:ems="10"
+            android:hint="@string/enter_tags"
             android:inputType="textMultiLine" />
 
         <Button
